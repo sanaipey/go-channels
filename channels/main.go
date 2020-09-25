@@ -39,6 +39,7 @@ func PrintCounts(label string, count chan int) {
 		val, ok := <-count
 		if !ok {
 			fmt.Println("channel was closed")
+			return
 		}
 		fmt.Printf("Count: %d received from %s \n\n", val, label)
 		if val == 10 {
